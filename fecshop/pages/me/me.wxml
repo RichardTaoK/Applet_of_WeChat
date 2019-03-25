@@ -1,0 +1,33 @@
+<!--pages/me/me.wxml-->
+<view class='my-info'>
+  <view class='my-list'>
+    <view class='my-pic' style='background-image:url({{pic}})'></view>
+    <view class='my-email'></view>
+  </view>
+</view>
+<view class='list-block'>
+  <view class='ul'>
+    <view class='li'>
+      <view class='title'>账户信息</view>
+      <view class='more'>></view>
+    </view>
+    <navigator class='li' url='/pages/address/address'>
+      <view class='title'>货运地址</view>
+      <view class='more'>></view>
+    </navigator>
+    <view class='li'>
+      <view class='title'>我的订单</view>
+      <view class='more'>></view>
+    </view>
+    <view class='li'>
+      <view class='title'>我的产品评论</view>
+      <view class='more'>></view>
+    </view>
+    <navigator class='li' url='/pages/favorite/favorite'>
+      <view class='title'>我的收藏</view>
+      <view class='more'>></view>
+    </navigator>
+  </view>
+  <view bindtap='sign_out' class='account_footer' style="display:{{signShow?'none':''}}">退出登录</view>
+  <navigator url='/pages/Login/Login' class='account_footer' style="display:{{signShow?'':'none'}}">登录</navigator>
+</view>

@@ -1,0 +1,49 @@
+<!--pages/Login/Login.wxml-->
+<view class='login-tab'>
+  <view class="title {{navSelect=='login'?'active':''}}" bindtap='selected' data-key='login'>登录</view>
+  <view class="title {{navSelect=='regin'?'active':''}}" bindtap='selected' data-key='regin'>注册</view>
+</view>
+<view class='login tab' style="display:{{navSelect=='login'?'block':'none'}}">
+  <view class='login-info'>
+    <view class='user nav'>
+      <view class='label'>账号</view>
+      <input bindinput='loginFormData' data-key='email' type='text' placeholder='请输入邮箱' value="{{formLoginData.email}}"></input>
+    </view>
+    <view class='password nav'>
+      <view class='label'>密码</view>
+      <input bindinput='loginFormData' data-key='password' type='text' password='true' placeholder='请输入密码' value='{{formLoginData.password}}'></input>
+    </view>
+  </view>
+  <view class="btn {{(formLoginData.email&&formLoginData.password)?'active':''}}" bindtap='loginSubmit'>登录</view>
+  <view class='forget-password'>
+    <view class='tb-pass'></view>
+    忘记密码
+  </view>
+</view>
+<view class='resgin tab' style="display:{{navSelect=='regin'?'block':'none'}}">
+  <view class='user nav'>
+    <view class='label'>姓氏</view>
+    <input type='text' bindinput='updataFormData' data-key='firstname' placeholder='请输入姓氏'></input>
+  </view>
+  <view class='user nav'>
+    <view class='label'>名字</view>
+    <input type='text' bindinput='updataFormData' data-key='lastname' placeholder='请输入名字'></input>
+  </view>
+  <view class='user nav'>
+    <view class='label'>邮箱</view>
+    <input type='text' bindinput='updataFormData' data-key='email' placeholder='请输入邮箱'></input>
+  </view>
+  <view class='user nav'>
+    <view class='label'>密码</view>
+    <input type='text' bindinput='updataFormData' data-key='password' placeholder='请输入密码'></input>
+  </view>
+  <view class='user nav'>
+    <view class='label'>重新输入密码</view>
+    <input type='text' placeholder='请再次输入密码'></input>
+  </view>
+  <!-- <view class='user nav'>
+    <view class='label captcha' style="background-image:url(data:image/gif;base64,{{captchaPic}})" ></view>
+    <input type='text' bindinput='updataFormData' data-key='captcha' placeholder='请输入验证码'></input>
+  </view> -->
+  <view bindtap='submit' class="btn {{(formData.email&&formData.password)?'active':''}}">注册</view>
+</view>

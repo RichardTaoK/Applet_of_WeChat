@@ -1,0 +1,133 @@
+<!--pages/product-show/product-show.wxml-->
+<swiper class='banner' indicator-dots='true' indicator-active-color='#007aff' autoplay='true'>
+  <swiper-item wx:for='{{bannerImg}}' wx:key='index'>
+    <view class='banner-img' style='background-image:url({{item}})'></view>
+  </swiper-item>
+</swiper>
+<view class='product_info'>
+  <view class='nav'>
+    <view class='title'>{{product.name}}</view>
+    <view bindtap='addToFavorite' class='add-like'></view>
+  </view>
+  <view class='rbc_cold'>
+    <view class='average_rating'>平均评分:</view>
+    <view class='review_star'>
+      <view class='star' wx:for='{{product.reviw_rate_star_average}}'></view>
+    </view>
+    <view class='count'>({{product.review_count}} 评论)</view>
+  </view>
+  <view class='item_code'>产品编码:{{product.sku}}
+  </view>
+  <view class='price_info'>
+    <view class='special_price'>{{prices.special_price.symbol}} {{prices.special_price.value}} </view>
+    <view class='price'>{{prices.price.symbol}} {{prices.price.value}}</view>
+  </view>
+  <view class='product_info_section'>
+    <view class='pg'>
+      <view class='label'>{{options[0].label}}</view>
+      <view class='chose_size'>
+        <view class='ul'>
+          <view class='li' wx:for='{{options[0].value}}' wx:for-item='f' wx:key='{{f._id.$oid}}'>
+            <view class="img {{f.active=='current'?'selected':''}}" style='background:url(http:{{f.show_as_img}}) no-repeat center center / 100% auto;' bindtap='changeOption' data-key='{{f._id.$oid}}'></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='pg'>
+      <view class='label'>{{options[1].label}}</view>
+      <view class='chose_size'>
+        <view class='ul'>
+          <view class='li' wx:for='{{options[1].value}}' wx:for-item='f' wx:key='f._id.$oid'>
+            <view class="size {{f.active=='current'?'selected':''}}" bindtap='changeOption' data-key='{{f._id.$oid}}'>{{f.attr_val}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='pg'>
+      <view class='label'>个数:</view>
+      <view class='chose_size'>
+        <view class='ul'>
+          <view class='li'>
+            <view class='num-sub num-but' style="color:{{sku_num > 1?'red':'#999'}}" bindtap='subSkuNum'>-</view>
+            <input type='number' class='num' bindinput='setSkuNum' value='{{sku_num}}'></input>
+            <view class='num-add num-but' style="color:{{sku_num < 100?'red':'#999'}}" bindtap='addSkuNum'>+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='product_description_info'>
+  <view class='buttons-tab'>
+    <view class="tab-link {{button==='descript'?'active':''}}" bindtap='dec' data-key='descript'>描述      </view>
+    <view class="tab-link {{button==='review'?'active':''}}" bindtap='dec' data-key='review'>评论</view>
+  </view>
+  <view class='content-block'>
+    <view class='tab1' style="display:{{button==='descript'?'block':'none'}}">
+      <view class='ul'>
+        <view class='li' wx:for='{{product.groupAttrArr}}'>
+          <view class='con' style='width:50%;height:40rpx;'>{{index}}</view>
+          <view class='con' style='width:50%;height:40rpx;'>{{item}}</view>
+        </view>
+      </view>
+      <view class='result-box'>{{product.description}}</view>
+      <view class='img-section' wx:for='{{product.thumbnail_img}}' style='background-image:url(http:{{item}});'></view>
+    </view>
+    <view class='tab2' style="display:{{button==='review'?'block':'none'}}">
+      <view class='averageWarp'>
+        <view class='lineBlock'>平均评分: </view>
+        <view class='review_star'>
+          <view class='star' wx:for='{{product.reviw_rate_star_average}}'></view>
+        </view>
+      </view>
+      <view class='lbBox'>
+        <view class='proportionStars'>
+          <view class='li'>
+            <view>5 星</view>
+          </view>
+          <view class='li'>
+            <view>4 星</view>
+          </view>
+          <view class='li'>
+            <view>3 星</view>
+          </view>
+          <view class='li'>
+            <view>2 星</view>
+          </view>
+          <view class='li'>
+            <view>1 星</view>
+          </view>
+        </view>
+        <view class='buttons-row'>
+          <view class='buttons-row-left'>新增评论</view>
+          <view class='buttons-row-right'>查看所有评论</view>
+        </view>
+      </view>
+      <view class='product-Reviews_top'>
+        <view class='card' wx:for='{{product.productReview.coll}}'>
+          <view class='fec-card-header'>{{item.summary}}</view>
+          <view class='fec-card-content'>
+            <view class='review-content'>{{item.review_content}}</view>
+            <view class='review_name'>{{item.name}}</view>
+            <view class='review_audit_date'>{{item.audit_date}}</view>
+          </view>
+          <view class='fec-card-footer'>
+            <view class='review_star'>
+              <view class='star' wx:for="{{item.rate_star}}"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='foottap'>
+  <navigator open-type="navigateTo" url="/pages/shop-two/shop-two" class='shop'>
+    <view class='shop-img'></view>
+    购物车
+    <view class="{{items_count==0?'':'shop-count'}}">{{items_count}}</view>
+    <view class="{{animote_drop?'drop':''}}">+{{sku_num}}</view>
+  </navigator>
+  <view class='add-shop' bindtap='addToCart'>加入购物车</view>
+  <view class='pay'>立即购买</view>
+</view>

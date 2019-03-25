@@ -1,0 +1,18 @@
+<scroll-view class='left' scroll-y='true'>
+  <view class='li {{index===current?"active":""}}' wx:for='{{categorys}}' bindtap='fn' data-id='{{index}}'>
+    {{item.name}}
+  </view>
+</scroll-view>
+<scroll-view class='right' scroll-y="true">
+  <block wx:if='{{categorys[current].child}}'>
+    <view class='row' wx:for="{{categorys[current].child}}">
+      <view class='two-title'>{{item.name}}</view>
+      <block wx:if="{{item.child}}">
+        <navigator class='goods' wx:for='{{item.child}}' wx:for-item='f' url='/pages/product-list/product-list?id={{f._id}}'>
+          <view class='pic' style='background:url(//img.fecshoptest.com/media/catalog/category{{f.pic}}) no-repeat center center/100% auto;'></view>
+          <view class='thi-title'>{{f.name}}</view>
+        </navigator>
+      </block>
+    </view>
+  </block>
+</scroll-view>

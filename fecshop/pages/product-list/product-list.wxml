@@ -1,0 +1,79 @@
+<!--pages/product-list/product-list.wxml-->
+<view class="pro_filter">
+  <view class="pro_filter_items">
+    <view class="item selected" bindtap='toggleMenuShow'>
+      <view>综合
+        <view class="icon_tri {{menuShow?'shang':'xia'}}"></view>
+      </view>
+    </view>
+    <view class="item" bindtap='setSortColumn' data-key='hot'>销量</view>
+    <view class="item" bindtap='setSortColumn' data-key='favorite_count'>收藏</view>
+    <view class="item" bindtap='toggleFilter'>筛选</view>
+  </view>
+  <view class="item_options" style="display:{{menuShow?'block':'none'}}">
+    <view class="selection radio line_cols_1 hide">
+      <view class="J_ping {{sortColumn==null?'active':''}}" bindtap='setSortColumn' data-key=''>
+        综合
+        <view class='duigou' style="display:{{sortColumn==null?'block':'none'}}"></view>
+      </view>
+      <view class="J_ping {{sortColumn=='new'?'active':''}}" bindtap='setSortColumn' data-key='new'>最新上架
+        <view class='duigou' style="display:{{sortColumn=='new'?'block':'none'}}"></view>
+      </view>
+      <view class="J_ping {{sortColumn=='low-to-high'?'active':''}}" bindtap='setSortColumn' data-key='low-to-high'>价格最低
+        <view class='duigou' style="display:{{sortColumn=='low-to-high'?'block':'none'}}"></view>
+      </view>
+      <view class="J_ping {{sortColumn=='high-to-low'?'active':''}}" bindtap='setSortColumn' data-key='high-to-low'>价格最高
+        <view class='duigou' style="display:{{sortColumn=='high-to-low'?'block':'none'}}"></view>
+      </view>
+      <view class="J_ping {{sortColumn=='review_count'?'active':''}}" bindtap='setSortColumn' data-key='review_count'>评价最多
+        <view class='duigou' style="display:{{sortColumn=='review_count'?'block':'none'}}"></view>
+      </view>
+    </view>
+  </view>
+</view>
+<scroll-view class="filter-box {{filterShow?'active':''}}" scroll-y='true' bindtap='toggleFilter'>
+  <view class='filter-box-inner' catchtap>
+    <view class='item' bindtap='clearFilter'>
+      <view class='item-title'>清除选项</view>
+    </view>
+    <view class='item' wx:for='{{filterInfo}}' wx:for-index='k'>
+      <view class='item-title'>{{item.label}}</view>
+      <view class='ul' wx:for='{{item.items}}' wx:for-item='f' bindtap='setFilterAttrs' data-key="{{k}}" data-vlu='{{f._id}}'>
+        <view class='li'>{{f.label}}({{f.count}})</view>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='item-title'>价格</view>
+      <view class='ul' wx:for='{{filterPrice}}'>
+        <view class='li'>{{item.label}}</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class='ul'>
+  <view class='li' wx:for='{{products}}'>
+    <navigator class='item' url='/pages/product-show/product-show?id={{item.one._id}}'>
+      <view class='pic' style='background-image:url(http:{{item.one.image}})'></view>
+      <view class='content'>
+        <view class='title'>{{item.one.name}}</view>
+        <view class='prince'>
+          <view class='symbol'>{{item.one.price.symbol}} </view>
+          <view class='vlu'>{{item.one.price.value}}</view>
+        </view>
+      </view>
+    </navigator>
+    <block wx:if="{{item.two.name}}">
+    <navigator class='item' url='/pages/product-show/product-show?id={{item.two._id}}'>
+      <view class='pic' style='background-image:url(http:{{item.two.image}})'></view>
+      <view class='content'>
+        <view class='title'>{{item.two.name}}</view>
+        <view class='prince'>
+          <view class='symbol'>{{item.two.price.symbol}}</view>
+          <view class='vlu'>{{item.two.price.value}}</view>
+        </view>
+      </view>
+    </navigator>
+    </block>
+  </view>
+</view>

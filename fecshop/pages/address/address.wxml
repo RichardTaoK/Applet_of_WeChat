@@ -1,0 +1,20 @@
+<!--pages/address/address.wxml-->
+<view class='table'>
+  <view class='title'>
+    <view class='title-name'>姓名</view>
+    <view class='title-address'>地址</view>
+    <view class='title-operate'>操作</view>
+  </view>
+  <view class='nav'>
+    <view class='nav-name nav-box'>ashdkah</view>
+    <view class='nav-address nav-box'>
+      <view></view>
+      <view class='default'>默认地址</view>
+    </view>
+    <view class='nav-operate nav-box'>
+      <view class='updata'></view>
+      <view class='delete'></view>
+    </view>
+  </view>
+</view>
+<navigator class='addAddress' url='/pages/edite-address/edite-address'>添加新地址</navigator>

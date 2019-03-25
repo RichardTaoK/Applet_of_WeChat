@@ -1,0 +1,70 @@
+<!--pages/index/index.wxml-->
+<view class='bar'>
+  <view class='pull-left'></view>
+  <view class='pull-center'></view>
+  <view class='pull-right'>
+    <view class='pright1'></view>
+    <view class='pright2'></view>
+  </view>
+</view>
+<swiper indicator-dots="true" autoplay='true' indicator-active-color='#007aff'>
+  <swiper-item wx:for='{{result.advertiseImg.bigImgList}}'>
+    <view style='height:375rpx;background:url({{item.imgUrl}}) no-repeat center center/100% auto'></view>
+  </swiper-item>
+</swiper>
+<view class='tjsp'>
+  <view wx:for='{{result.advertiseImg.smallImgList}}'>
+    <view style='width:340rpx;height:288rpx;background:url({{item.imgUrl}}) no-repeat center center/100% auto'></view>
+  </view>
+</view>
+<view class='goods'>
+  <view class='row' wx:for='{{result.productList}}'>
+    <navigator url='/pages/product-show/product-show?id={{item.one.product_id}}' class='col'>
+      <view class='tp' style='background:url({{item.one.image}}) no-repeat center center/100% auto'></view>
+      <view class='title'>{{item.one.name}}</view>
+      <view class='price'>
+        <text>{{item.one.price.code}}</text>
+        <text>{{item.one.price.symbol}}</text>
+        <text>{{item.one.price.value}}</text>
+      </view>
+    </navigator>
+    <navigator url='/pages/product-show/product-show?id={{item.two.product_id}}' class='col'>
+      <view class='tp' style='background:url({{item.two.image}}) no-repeat center center/100% auto'></view>
+      <view class='title'>{{item.two.name}}</view>
+      <view class='price'>
+        <text>{{item.one.price.code}}</text>
+        <text>{{item.one.price.symbol}}</text>
+        <text>{{item.one.price.value}}</text>
+      </view>
+    </navigator>
+  </view>
+</view>
+<view class='foot_bar'>
+  <view class='change_bar'>
+    <view class='cleft'>Language: </view>
+    <view class='cright'>
+      <view class='select' catchtap='selectTap'>
+        <text class='select_text'>{{selectData[index]}}</text>
+      </view>
+      <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+        <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='change_bar'>
+    <view class='cleft'>Currency: </view>
+    <view class='cright'>
+      <view class='select' catchtap='selectTap'>
+        <text class='select_text'>{{currencyData[index]}}</text>
+      </view>
+      <view class='option_box' style='height:{{show?(currencyData.length>5?300:currencyData.length*60):0}}rpx;'>
+        <text class='option' style='{{index==currencyData.length-1&&"border:0;"}}' wx:for='{{currencyData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='foot_bottom'>
+  <view class='lazy'></view>
+  <view class='copy'>Copyright Notice ©2016 FecShop.com All rights reserved.
+  </view>
+</view>

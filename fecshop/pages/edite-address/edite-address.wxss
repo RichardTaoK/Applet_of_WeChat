@@ -1,0 +1,35 @@
+/* pages/edite-address/edite-address.wxss */
+.input{
+  padding-left: 30rpx;
+  border-top: 2rpx solid #F5F5F5;
+}
+input{
+  height: 88rpx;
+  padding: 16rpx 30rpx 14rpx 4rpx;
+  border-bottom: 2rpx solid #F5F5F5;
+  box-sizing: border-box;
+  font-size: 10pt;
+}
+.default{
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  font-size: 10pt;
+}
+.default .isDefault{
+  width: 26rpx;
+  height: 26rpx;
+  border: 2rpx solid #AFAFAF;
+  background: #DEDEDE;
+  margin-right: 32rpx;
+}
+.submit{
+  margin: 32rpx 32rpx 32rpx 0;
+  height: 54rpx;
+  border-radius: 10rpx;
+  background: #0894EC;
+  color: #fff;
+  font-size: 10pt;
+  line-height: 54rpx;
+  text-align: center;
+}

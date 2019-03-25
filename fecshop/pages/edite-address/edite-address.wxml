@@ -1,0 +1,30 @@
+<!--pages/edite-address/edite-address.wxml-->
+<view class='input'>
+  <view class='content'>
+    <input placeholder='email'></input>
+    <input placeholder='First Name'></input>
+    <input placeholder='Last Name'></input>
+    <input placeholder='Telephone'></input>
+    <view class='country'>
+      <input placeholder='selectchuntry'></input>
+      <view class='country-list'>
+        <view class='li'></view>
+      </view>
+    </view>
+    <view class='province'>
+      <input placeholder='selectprovince'></input>
+      <view class='province-list'>
+        <view class='li'></view>
+      </view>
+    </view>
+    <input placeholder='City'></input>
+    <input placeholder='Street1'></input>
+    <input placeholder='Street2'></input>
+    <input placeholder='zip'></input>
+  </view>
+  <view class='default'>
+    <view class='isDefault'></view>
+    <view>Is Default</view>
+  </view>
+  <view class='submit'>Save Address</view>
+</view>

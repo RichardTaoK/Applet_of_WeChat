@@ -1,0 +1,2 @@
+<!--pages/first/first.wxml-->
+ <button open-type="getUserInfo" bindgetuserinfo='setUserInfo'>授权</button>

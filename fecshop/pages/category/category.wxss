@@ -1,0 +1,52 @@
+/* pages/category/category.wxss */
+.left{
+  width: 170rpx;
+  height: 100vh;
+  background: #f8f8f8;
+  float: left;
+}
+.li{
+  height: 92rpx;
+  font-size: 8pt;
+  line-height: 92rpx;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 10rpx;
+}
+.active{
+  background: #fff;
+}
+.right{
+  width: 580rpx;
+  height: 100vh;
+  float: right;
+  padding: 38rpx 14rpx 0 14rpx;
+  box-sizing: border-box;
+}
+.row{
+  overflow: hidden;
+}
+.two-title{
+  height: 48rpx;
+  line-height: 48rpx;
+  font-weight: bold;
+  font-size: 10pt;
+}
+.goods{
+  width: 168rpx;
+  height: 214rpx;
+  float: left;
+}
+.pic{
+  width: 140rpx;
+  height: 140rpx;
+  margin: 0 auto;
+  background: #333;
+}
+.thi-title{
+  font-size: 7pt;
+  text-align: center;
+  margin-top: 10rpx;
+}

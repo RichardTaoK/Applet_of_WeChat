@@ -1,0 +1,73 @@
+<!--pages/shop/shop.wxml-->
+<view wx:if="{{isEmpty}}" class="empty">
+  购物车空空如也~
+</view>
+<view wx:else class='cart'>
+  <view class='cart-info'>
+    <view class='cart_select_div'>
+      <view class="cart_select_all {{selectedAll?'active':''}}" bindtap='toggleSelectAll'></view>
+      <view class='label'>Select All Product</view>
+    </view>
+    <view class='row' bindtap="showDetail" data-id="{{item.product_id}}" wx:for="{{cart_info.products}}" wx:key="{{index}}">
+      <view class='col-33'>
+        <view catchtap bindtap="toggleSelectOne" data-id="{{item.item_id}}" data-active="{{item.active}}" class="cart_select_all {{item.active?'active':''}}" ></view>
+        <view class='product-image' style='background-image:url(http:{{item.img_url}});'></view>
+      </view>
+      <view class='col-66'>
+        <view class='product-name'>{{item.name}}</view>
+        <view class='options'>
+          <view class="options-dec" wx:for-index="k" wx:for-item="v" wx:for="{{item.spu_options}}">
+            {{k}}:{{v}}
+          </view>
+        </view>
+        <view class='cart-price'>￥ {{item.product_price}}</view>
+        <view class='cart_qty'>
+          <view class='cart-updata' catchtap>
+            <view class='btn sub' bindtap="updateInfo" data-id="{{item.item_id}}" data-type="less_one">-</view>
+            <input type='number' class='num' value='{{item.qty}}'></input>
+            <view class='btn add' bindtap="updateInfo" data-id="{{item.item_id}}" data-type="add_one">+</view>
+          </view>
+          <view class='delete' catchtap bindtap='updateInfo' data-id="{{item.item_id}}" data-type="remove"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='cart-collaterals'>
+    <view class='discount'>
+      <view class='h2'>折扣</view>
+      <view class='discount-form'>
+        <input type='text'></input>
+        <view class='buttons-coupon'>Add Coupon</view>
+      </view>
+    </view>
+    <view class="cart_cost">
+      <view class="no-gutter">
+        <view class="no-gutter-title">小计 : </view>
+        <view class="no-gutter-nav">￥ {{cart_info.grand_total}}</view>
+      </view>
+      <view class="no-gutter">
+        <view class="no-gutter-title">总重 : </view>
+        <view class="no-gutter-nav">99.00 Kg</view>
+      </view>
+      <view class="no-gutter">
+        <view class="no-gutter-title">总体积 : </view>
+        <view class="no-gutter-nav">0.00 c㎡</view>
+      </view>
+      <view class="no-gutter">
+        <view class="no-gutter-title">运费 : </view>
+        <view class="no-gutter-nav">￥ {{cart_info.shipping_cost}}</view>
+      </view>
+      <view class="no-gutter">
+        <view class="no-gutter-title">折扣 :</view>
+        <view class="no-gutter-nav">-￥ {{cart_info.coupon_cost}}</view>
+      </view>
+      <view class="no-gutter">
+        <view class="no-gutter-title">总计 :</view>
+        <view class="no-gutter-nav">￥ {{cart_info.product_total}}</view>
+      </view>
+    </view>
+    <view class='cart-totals'>
+      <view class='btn-checkout'>继续付款</view>
+    </view>
+  </view>
+</view>

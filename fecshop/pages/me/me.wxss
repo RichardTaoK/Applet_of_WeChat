@@ -1,0 +1,38 @@
+/* pages/me/me.wxss */
+.my-info{
+  height: 180rpx;
+  padding: 16rpx 40rpx 16rpx 60rpx;
+  display: flex;
+}
+.my-list{
+  border: 2rpx solid #BBBBBB;
+}
+.my-info .my-pic{
+  height: 140rpx;
+  width: 140rpx;
+  border-radius: 50%;
+  background: no-repeat center center/100% auto;
+}
+.list-block .ul{
+  border-top: 2rpx solid #777;
+}
+.list-block .li{
+  height: 88rpx;
+  border-bottom: 2rpx solid #F6F6F6;
+  display: flex;
+  font-size: 10pt;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 40rpx 16rpx 60rpx;
+}
+.list-block .account_footer{
+  padding: 0 60rpx;
+  margin: 60rpx;
+  height: 54rpx;
+  background: #BBBBBB;
+  font-size: 11pt;
+  line-height: 54rpx;
+  text-align: center;
+  border-radius: 30rpx;
+  color: #fff;
+}

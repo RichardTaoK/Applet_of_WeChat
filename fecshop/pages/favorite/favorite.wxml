@@ -1,0 +1,19 @@
+<!--pages/favorite/favorite.wxml-->
+<view class='account-container'>
+  <view class='favorite-list' bindtap='showDetail' data-id='{{item.product_id}}' wx:for="{{favorite_list}}" wx:key="{{index}}">
+    <view class='pic' >
+      <view class='my-pic' style='background-image:url({{item.imgUrl}})'></view>
+    </view>
+    <view class='nav'>
+      <view class='name nav-list'>{{item.name}}</view>
+      <view class='center nav-list'>
+        <view class='item-price'>
+          <view class='special-price'>{{item.price_info.special_price.symbol}}  {{item.price_info.special_price.value}}</view>
+          <view class='price'>{{item.price_info.price.symbol}}  {{item.price_info.price.value}}</view>
+        </view>
+        <view catchtap class='delete' bindtap="removeFavoriteProduct" data-key='{{item.favorite_id}}'></view>
+      </view>
+      <view class='date nav-list'>Favorite Date:{{item.updated_at}}</view>
+    </view>
+  </view>
+</view>

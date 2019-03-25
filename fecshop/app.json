@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/product-list/product-list",    
+    "pages/Login/Login",
+    "pages/product-show/product-show",
+    "pages/edite-address/edite-address",
+    "pages/address/address",
+    "pages/shop-two/shop-two",
+    "pages/shop/shop",
+    "pages/favorite/favorite",
+    "pages/me/me",
+    "pages/first/first",
+    "pages/category/category",
+    "pages/find/find"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "FecShop",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#000"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#f7f7f8",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "imgs/home.png",
+        "selectedIconPath": "imgs/home2.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "imgs/category.png",
+        "selectedIconPath": "imgs/category2.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "imgs/find.png",
+        "selectedIconPath": "imgs/find2.png"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "购物车",
+        "iconPath": "imgs/cart.png",
+        "selectedIconPath": "imgs/cart2.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "imgs/mine.png",
+        "selectedIconPath": "imgs/mine2.png"
+      }
+    ]
+  }
+}
